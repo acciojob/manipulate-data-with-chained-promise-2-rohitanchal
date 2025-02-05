@@ -1,10 +1,6 @@
 //your JS code here. If required.
 function getNumbers() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve([1, 2, 3, 4]);
-        }, 3000);
-    });
+    return Promise.resolve([1, 2, 3, 4]);
 }
 
 function filterEvenNumbers(numbers) {
@@ -23,12 +19,12 @@ function multiplyByTwo(numbers) {
             const multipliedNumbers = numbers.map(num => num * 2);
             document.getElementById("output").innerText = multipliedNumbers.join(", ");
             resolve(multipliedNumbers);
-        }, 2000);
+        }, 2000); 
     });
 }
 
-// Chaining the promises
 getNumbers()
     .then(filterEvenNumbers)
     .then(multiplyByTwo)
     .catch(error => console.error("Error:", error));
+	
